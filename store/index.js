@@ -4,8 +4,11 @@ const createStore = () => {
    return new Vuex.Store({
       strict: process.env.NODE_ENV !== 'production',
       state: () => ({
-         auth: {
-
+         auth: {},
+         todoList: {
+            todo: [{text: 'tetete'},{text: 'tetete'}],
+            wip: [{text: 'tetete'},{text: 'tetete'}],
+            done: [{text: 'tetete'},{text: 'tetete'}]
          }
       }),
       mutations: {

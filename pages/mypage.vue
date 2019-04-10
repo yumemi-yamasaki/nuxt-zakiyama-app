@@ -2,9 +2,9 @@
   <div>
     <h1 class="top-label">{{ auth.userName }}のToDoリスト</h1>
     <div class="main">
-      <Todolist list-name="ToDo" :list="list1"/>
-      <Todolist list-name="Doing" :list="list2"/>
-      <Todolist list-name="Done" :list="list3"/>
+      <Todolist list-name="ToDo" :list="todoList.todo"/>
+      <Todolist list-name="Doing" :list="todoList.wip"/>
+      <Todolist list-name="Done" :list="todoList.done"/>
     </div>
   </div>
 </template>
@@ -20,24 +20,8 @@ export default {
   },
   props: {
   },
-  data() {
-     return {
-       list1: [
-         'hogehoge',
-         'fugafuga'
-       ],
-       list2: [
-         'hogehoge',
-         'fugafuga'
-       ],
-       list3: [
-         'hogehoge',
-         'fugafuga'
-       ]
-     };
-  },
   computed: {
-    ...mapState(['auth'])
+    ...mapState(['auth', 'todoList'])
   },
   methods: {
   }

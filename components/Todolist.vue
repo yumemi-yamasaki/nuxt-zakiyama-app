@@ -1,16 +1,13 @@
 <template>
 <div>
     <v-sheet
-          class="d-flex box"
+          class="box"
           color="grey lighten-3"
-          height="424"
         >
         <h2>{{ listName }}</h2>
-        <div class="cards">
             <Draggable  :list="list" group="all">
                 <Card v-for="(el, index) in list" :item="el" :key="index" />
             </Draggable>
-        </div>
         <v-btn small fab dark color="indigo" class="p-btn">
             <v-icon>add</v-icon>
         </v-btn>
@@ -54,12 +51,9 @@ export default {
 .box {
     width: 300px;
     margin: 20px 10px;
-    position: relative;
 }
 
 .p-btn {
-    position: absolute;
     bottom: 10px;
-    left: 10px;
 }
 </style>
