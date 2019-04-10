@@ -8,7 +8,7 @@
             <Draggable  :list="list" group="all">
                 <Card v-for="(el, index) in list" :item="el" :key="index" :cardIndex="index" @remove="remove" @updateCard="updateCard"/>
             </Draggable>
-        <v-btn small fab depressed dark color="indigo" class="p-btn">
+        <v-btn small fab depressed dark color="indigo" class="p-btn" @click="add">
             <v-icon>add</v-icon>
         </v-btn>
     </v-sheet>
@@ -43,6 +43,9 @@ export default {
 
   },
   methods: {
+      add() {
+          this.list.push({text: ''});
+      },
       remove(index) {
           this.list.splice(index, 1);
       },
