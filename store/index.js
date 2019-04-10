@@ -17,11 +17,18 @@ const createStore = () => {
                  uid: payload.uid,
                  userName: payload.userName
              }
+        },
+        updateTodoList(state, payload) {
+           state.todoList = payload;
         }
       },
       actions: {
          setAuth(store, payload) {
-             store.commit('setAuth', payload)
+             store.commit('setAuth', payload);
+         },
+         // TODOリストを更新する
+         updateTodoList(store, payload) {
+            store.commit('updateTodoList', payload);
          }
       }
    })

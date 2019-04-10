@@ -2,9 +2,9 @@
   <div>
     <h1 class="top-label">{{ auth.userName }}のToDoリスト</h1>
     <div class="main">
-      <Todolist list-name="ToDo" :list="copiedTodoList.todo"/>
-      <Todolist list-name="Doing" :list="copiedTodoList.wip"/>
-      <Todolist list-name="Done" :list="copiedTodoList.done"/>
+      <Todolist list-name="ToDo" :list="copiedTodoList.todo" @updateCard="updateTodoList"/>
+      <Todolist list-name="Doing" :list="copiedTodoList.wip" @updateCard="updateTodoList"/>
+      <Todolist list-name="Done" :list="copiedTodoList.done" @updateCard="updateTodoList"/>
     </div>
   </div>
 </template>
@@ -30,6 +30,9 @@ export default {
     ...mapState(['auth', 'todoList'])
   },
   methods: {
+    updateTodoList() {
+      this.$store.dispatch('updateTodoList', clonedeep(this.copiedTodoList))
+    }
   },
   beforeMount() {
     this.copiedTodoList = clonedeep(this.todoList)
