@@ -45,6 +45,7 @@ export default {
   methods: {
       add() {
           this.list.push({text: ''});
+          this.updateCard();
       },
       remove(index) {
           this.list.splice(index, 1);

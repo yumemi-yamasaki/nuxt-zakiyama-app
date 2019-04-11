@@ -45,6 +45,7 @@ export default {
     },
     remove() {
       this.$emit('remove', this.index);
+      this.updateCard();
     }
   }
 }

@@ -31,11 +31,24 @@ export default {
   },
   methods: {
     updateTodoList() {
-      this.$store.dispatch('updateTodoList', clonedeep(this.copiedTodoList))
+      this.$store.dispatch('updateTodoList', clonedeep(this.copiedTodoList));
     }
   },
   beforeMount() {
     this.copiedTodoList = clonedeep(this.todoList)
+  },
+  async fetch({ store }) {
+    const val = await firebase.app().functions('asia-northeast1').httpsCallable('getData')();
+      if(val.data){
+         store.dispatch('updateTodoList', val.data);
+      }else{
+         val.data = {
+            done: [],
+            wip: [],
+            todo: []
+         }
+         store.dispatch('updateTodoList', val.data);
+      }
   }
 }
 </script>

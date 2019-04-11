@@ -7,4 +7,9 @@ const functions = require('firebase-functions');
 //  response.send("Hello from Firebase!");
 // });
 
-exports.hello = require('./modules/omikuji').helloWorld
+exports.hello = require('./modules/omikuji').helloWorld;
+
+
+exports.getData = require('./modules/getData').getData;
+
+exports.setData = require('./modules/setData').setData;

@@ -1,7 +1,7 @@
 <template>
 <div class="login">
-  <h1 class="login__title">！ログインしてください！</h1>
-  <span class="login__description">↓</span>
+  <h1 class="login__title">LOGIN</h1>
+  <span class="login__description">- Login with Google -</span>
   <v-btn @click="clickLoginBtn" color="info">LOGIN
   </v-btn>
 </div>
