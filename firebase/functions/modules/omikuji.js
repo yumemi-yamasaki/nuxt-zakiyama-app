@@ -4,5 +4,20 @@ const functions = require('firebase-functions');
 // https://firebase.google.com/docs/functions/write-firebase-functions
 
 exports.helloWorld = functions.https.onRequest((request, response) => {
- response.send("Hello from Firebase!");
+    const cost = request.query.cost;
+    let data;
+    if(!cost) {
+        data = {
+            unsei: '天罰',
+        }
+    } else if(cost<500) {
+        data = {
+            unsei: '小吉',
+        }
+    } else {
+        data = {
+            unsei: '大吉',
+        }
+    }
+ response.send(data);
 });
